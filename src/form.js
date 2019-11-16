@@ -311,7 +311,7 @@ const TableHead= () =>
     return(        
     <thead>
         <tr>
-            <td style={{width:"33.33%"}}>Zone</td>
+            <td style={{width:"33.33%"}}>Test</td>
             <td style={{width:"33.33%"}}>Name</td>
             <td style={{width:"33.33%"}}>Address</td>
         </tr>
