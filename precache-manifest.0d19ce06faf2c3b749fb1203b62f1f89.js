@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9060e6d74ae137617d7c5ef7615119ac",
+    "revision": "f84e8048b83aa495f6ba7694063d4dae",
     "url": "/roomcontroller/index.html"
   },
   {
-    "revision": "d800629a7063df3249df",
+    "revision": "aff1827c8256c465805e",
     "url": "/roomcontroller/static/css/main.458e06c2.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/roomcontroller/static/js/2.f2902b56.chunk.js"
   },
   {
-    "revision": "d800629a7063df3249df",
-    "url": "/roomcontroller/static/js/main.2d3a0fed.chunk.js"
+    "revision": "aff1827c8256c465805e",
+    "url": "/roomcontroller/static/js/main.0a58fa58.chunk.js"
   },
   {
     "revision": "c57ce13767c234a62ef9",
