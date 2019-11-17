@@ -13,6 +13,7 @@ class ParentComponent extends React.Component {
         super(props)
 
         this.state = { 
+          expandedRow : ""
                   
           }          
           
@@ -33,6 +34,24 @@ class ParentComponent extends React.Component {
         .catch(console.log)        
       }   
 
+      handleRowClick=(rowId)=> {        
+        
+        if (rowId==="home")
+        {
+          this.setState({expandedRow : ""})
+        }
+        
+        if (rowId!==this.state.expandedRow)
+        {
+            this.setState({expandedRow : rowId})
+        }
+        else
+        {
+            this.setState({expandedRow : ""})
+        }
+        this.setState({displayDetailsOrSetting : 0})
+    }
+
         
     render() {
         
@@ -41,8 +60,8 @@ class ParentComponent extends React.Component {
         <div>
             mario
             <Topbar/>
-        {this.state.rooms_status?<Sidebar rooms_status={this.state.rooms_status}/>:null }  
-        {this.state.rooms_status?<Main rooms_status={this.state.rooms_status}/>:null }
+        {this.state.rooms_status?<Sidebar rooms_status={this.state.rooms_status} handleRowClick={this.handleRowClick} />:null }  
+        {this.state.rooms_status?<Main rooms_status={this.state.rooms_status} handleRowClick={this.handleRowClick} expandedRow={this.state.expandedRow}/>:null }
         </div>
     )
         

@@ -86,20 +86,29 @@ class Sidebar extends React.Component {
     displayZoneList=()=>
     { 
 
-        const zoneList =this.props.rooms_status.controllers.map((controller,index) => {
+        const zoneList =this.props.rooms_status.controllers.map((controller) => {
            
             return (
 
                 
-                    <tr key={index}>
-                        <td >
+                    <tr key={controller.id}>
+                        <td onClick={() => this.props.handleRowClick(controller.id)}>
                         {controller.zone}
                         </td>
                     </tr>  
         )})
+
+        zoneList.unshift(<tr key={"home"}>
+                            <td onClick={() => this.props.handleRowClick("home")}>Home</td>            
+                        </tr>
+                        )
+
         
 
-        return (<table>{zoneList}</table>)
+        return (<table>
+                        
+            {zoneList}
+            </table>)
     }
 
 

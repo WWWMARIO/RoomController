@@ -30,7 +30,7 @@ class Main extends React.Component {
         
         this.state = {
             
-            expandedRow : "",
+            
             displayDetailsOrSetting: 0,
 
         };
@@ -40,18 +40,7 @@ class Main extends React.Component {
 
     
 
-    handleRowClick(rowId) {
-        
-        if (rowId!==this.state.expandedRow)
-        {
-            this.setState({expandedRow : rowId})
-        }
-        else
-        {
-            this.setState({expandedRow : ""})
-        }
-        this.setState({displayDetailsOrSetting : 0})
-    }
+   
         
     handleClickDetailsOrSetting=()=> {    
         
@@ -99,9 +88,9 @@ class Main extends React.Component {
         
         const itemRows = [
 			<tr  key={"row-data-" + item.id} style={{backgroundColor: "lightblue"}}>
-			    <td><button onClick={() => this.handleRowClick(item.id)}>{item.zone}</button></td>
+			    <td><button onClick={() => this.props.handleRowClick(item.id)}>{item.zone}</button></td>
 			    <td>{item.name}</td>
-			    <td>{item.address}{this.state.expandedRow===item.id?<button onClick={()=>{this.handleClickDetailsOrSetting()}}>
+			    <td>{item.address}{this.props.expandedRow===item.id?<button onClick={()=>{this.handleClickDetailsOrSetting()}}>
                     {this.state.displayDetailsOrSetting===0?"Settings":"Details"}</button>:""}
                 </td>	
                 
@@ -110,7 +99,7 @@ class Main extends React.Component {
 			</tr>
         ];
         
-        if(this.state.expandedRow===item.id) {
+        if(this.props.expandedRow===item.id) {
             itemRows.push(                
                 this.displayDetailsAndPropertiesOrSettings(item) 
                                
