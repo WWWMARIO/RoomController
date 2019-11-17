@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/roomcontroller/static/css/main.458e06c2.chunk.css",
-    "main.js": "/roomcontroller/static/js/main.0a58fa58.chunk.js",
-    "main.js.map": "/roomcontroller/static/js/main.0a58fa58.chunk.js.map",
+    "main.js": "/roomcontroller/static/js/main.8094bd2f.chunk.js",
+    "main.js.map": "/roomcontroller/static/js/main.8094bd2f.chunk.js.map",
     "runtime-main.js": "/roomcontroller/static/js/runtime-main.f22fe4f6.js",
     "runtime-main.js.map": "/roomcontroller/static/js/runtime-main.f22fe4f6.js.map",
     "static/js/2.f2902b56.chunk.js": "/roomcontroller/static/js/2.f2902b56.chunk.js",
     "static/js/2.f2902b56.chunk.js.map": "/roomcontroller/static/js/2.f2902b56.chunk.js.map",
     "index.html": "/roomcontroller/index.html",
-    "precache-manifest.0d19ce06faf2c3b749fb1203b62f1f89.js": "/roomcontroller/precache-manifest.0d19ce06faf2c3b749fb1203b62f1f89.js",
+    "precache-manifest.604449056d3e78204ea11c42a60d9d5c.js": "/roomcontroller/precache-manifest.604449056d3e78204ea11c42a60d9d5c.js",
     "service-worker.js": "/roomcontroller/service-worker.js",
     "static/css/main.458e06c2.chunk.css.map": "/roomcontroller/static/css/main.458e06c2.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.f22fe4f6.js",
     "static/js/2.f2902b56.chunk.js",
     "static/css/main.458e06c2.chunk.css",
-    "static/js/main.0a58fa58.chunk.js"
+    "static/js/main.8094bd2f.chunk.js"
   ]
 }
