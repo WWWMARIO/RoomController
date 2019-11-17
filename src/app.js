@@ -26,13 +26,16 @@ class App extends React.Component {
         localStorage.setItem("currentTempLocal", JSON.stringify(currentTempByRoomIdLocal));
       }
 }
-
     
 
     render() {
 
     return (
-    <Form/>    
+    <div>
+
+      
+      <Form/> 
+    </div>   
     )
         
   }

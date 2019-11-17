@@ -325,54 +325,231 @@ const TableHead= () =>
 
 
 
-/*class ControllerListTable extends React.Component {
 
 
-    
-
+class Sidebar extends React.Component {
 
     constructor(props){
-        super(props)
-
-    //varijabla za json dobiven sa web stranice
-    //const ControllerListFromAPI=getControllerListFromRoomStatus();
+        super(props)       
 
         
-        const roomsStatus=rooms_status;
-        console.log(roomsStatus.controllers);
+        this.state = {       
+           
+            
+          }    
+   
+    }  
 
-        this.state = {
-            roomsStatus :rooms_status            
-        }
+    componentDidMount() {
+        var today=new Date();
+        var apiKey="8a467e39a9ae7875410a03765fbab59fbd7ed3e8"
+        var country="hr"
+        var year=today.getFullYear()
+        var nextYear=Number(today.getFullYear()+1)
+        var calendarificURL="https://calendarific.com/api/v2/holidays?&api_key="+apiKey+"&country="+country+"&year="+year
 
-        
-    }
 
-    render() {
-        
-    //funkcija za dobivanje jsona sa web stranice
-    function getControllerListFromRoomStatus() {
-        return fetch('http://ae.hr/rooms_status.json')
-        .then((response) => response.json())
+        fetch(calendarificURL)
+        .then(response => response.json())
         .then((responseJson) => {
-            console.log  (responseJson.movies)
-            return responseJson.movies;
+            
+          this.setState({ holidayListJsonThisYear: responseJson.response.holidays })
+          this.getNextHoliday()
         })
-        .catch((error) => {
-            console.error(error);
-        });
-        }
+        .catch(console.log)
 
-    return(
-    <tbody>
-        <button onClick={()=>this.props.getControllerListFromRoomStatus()}></button>      
+        var calendarificURLNextYear="https://calendarific.com/api/v2/holidays?&api_key="+apiKey+"&country="+country+"&year="+nextYear
+
+        fetch(calendarificURLNextYear)
+        .then(response => response.json())
+        .then((responseJson) => {
+          this.setState({ holidayListJsonNextYear: responseJson.response.holidays })
+          this.getNextHoliday()
+        })
+        .catch(console.log)
+
         
-    </tbody>
 
-    )
+                
+      }
+
+      
+
+
+
+
+      
+
+      
+      
+    getNextHoliday=()=>{
+        var today=new Date()
+        
+        const thisYearHolidays=this.state.holidayListJsonThisYear
+        
+
+        
+        for (let i=0;i<thisYearHolidays.length;i++)
+        {
+            if  (thisYearHolidays[i].type[0]==="National holiday" || thisYearHolidays[i].type[0]==="Observance")
+            {
+                let currentHoliday=new Date(thisYearHolidays[i].date.datetime.year,thisYearHolidays[i].date.datetime.month-1,thisYearHolidays[i].date.datetime.day)
+                
+                if (today<currentHoliday )
+                {        
+                        this.setState({
+                            nextHoliday:thisYearHolidays[i]
+                             
+                        }) 
+                        //console.log(thisYearHolidays[i])  
+                        return thisYearHolidays[i]
+                        break
+                }
+            } 
+        }
+              
+        let lastHolidayIndex=Number(thisYearHolidays.length-1)       
+        
+        let lastHoliday=thisYearHolidays[lastHolidayIndex]
+        
+        let lastHolidayDate=new Date(lastHoliday.date.datetime.year,lastHoliday.date.datetime.month-1,lastHoliday.date.datetime.day)
+        const nextYearHolidays=this.state.holidayListJsonNextYear
+        if (today>=lastHolidayDate)
+        {
+            this.setState({
+                            nextHoliday:nextYearHolidays[0]
+                        })
+            console.log(thisYearHolidays[0] )            
+            return thisYearHolidays[0]             
+        }
+         
+       
+
 
     }
-}*/
+       
+    render(){
+    
+        return(
+                
+    <div className="sidenav">
+         {/*<button onClick={()=>this.getHolidaysListFromCalendarific()}>dohvati</button> 
+         <button onClick={()=>this.getNextHoliday()}>dohvati</button>*/}
+         <div>The next Croatian holiday is :</div>
+         { this.state.nextHoliday &&
+                <div>{this.state.nextHoliday.name} {this.state.nextHoliday.date.iso}</div> 
+            }
+         
+         
+    </div>
+    )
+    }
+  }    
+
+
+  class Topbar extends React.Component {
+
+    constructor(props){
+        super(props)       
+            
+        this.state = {
+          }
+    }  
+    
+    componentDidMount() {
+        var country="HR"
+        var location="HR0005A"
+        
+        var openAqURL="https://api.openaq.org/v1/latest?&country="+country+"&location="+location
+        console.log(openAqURL)
+
+
+        fetch(openAqURL)
+        .then(response => response.json())
+        .then((responseJson) => {
+            
+          this.setState({ airQualityRijeka: responseJson.results[0] })         
+          this.displayAirQualityData()
+        })
+        .catch(console.log)  
+                
+      }
+
+
+    displayAirQualityData=()=>
+    {
+        
+
+        /*for(let i=0;i<this.state.airQualityRijeka.measurements.length;i++)
+        {
+
+            <dl>
+                <dt>{this.state.airQualityRijeka.measurements[i].parameter}</dt>
+                <dd></dd>
+
+            </dl>
+
+        }*/
+
+        const airQualityRijekaParameters =this.state.airQualityRijeka.measurements.map((parameter,index) => {
+           
+            return (   
+                
+                
+               /* <dl style={{display : 'inline-block'}} >
+                    <dt>{parameter.parameter.toUpperCase()}</dt>
+                    <dt>{parameter.value}{parameter.unit}</dt>
+                padding-left:5em
+                </dl>*/
+
+                <p style={{display : 'inline-block',padding:"0 1em" }} >
+                    {parameter.parameter.toUpperCase()} : {parameter.value}{parameter.unit}
+
+
+
+                </p>
+
+
+                
+                /*<tr key={index}>                
+                    <td>{row.Id}</td>
+                    <td>{row.settingName}</td>
+                    <td>{row.settingValue}</td>
+                </tr>*/
+             
+            
+        )})
+
+
+
+        /*let so2Quantity=this.state.airQualityRijeka.measurements[0].value
+        console.log(so2Quantity+" so2")
+        let no2Quantity=this.state.airQualityRijeka.measurements[1].value
+        console.log(no2Quantity+" no2")*/
+
+        return (airQualityRijekaParameters)
+
+
+    }  
+
+
+
+
+  
+    render(){
+    
+        return(
+                
+    <div className="topbar">
+         Air quality in Rijeka, latest measurements {this.state.airQualityRijeka && this.displayAirQualityData()}
+         
+         
+    </div>
+    )
+    }
+  }  
+
+
 
 
 
@@ -387,20 +564,72 @@ class Form extends React.Component {
 
         this.state = {          
           }    
+
+
+          
+
+    
+
+
    
     }
+
+    /*componentDidMount(){
+        const ControllerListFromAPI=getControllerListFromRoomStatus();        
+        //const roomsStatus=
+        //console.log(roomsStatus.controllers);
+
+        this.state = {
+            roomsStatus :ControllerListFromAPI            
+        }
+
+
+        function getControllerListFromRoomStatus() {
+            return fetch('http://ae.hr/rooms_status.json')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                console.log  (responseJson.movies)
+                return responseJson.movies;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+            }
+
+
+    }*/
+
+
+
+      
+
+    
+
+
+
+
+
+
+
+
         
     render() {
         
 
     return (
-    <table>
-        <TableHead/>
-        <ParentComponent controllerSettings={controllerSettings}/>
+        <div>
+            <Topbar/>
+            <Sidebar/>  
+    
+            <table className="main">
+                
+                <TableHead/>
+                <ParentComponent controllerSettings={controllerSettings}/>
 
-        {/*<ControllerListTable getControllerListFromRoomStatus={getControllerListFromRoomStatus}/> */}       
-        
-    </table>
+                {/*<ControllerListTable getControllerListFromRoomStatus={getControllerListFromRoomStatus}/> */}       
+                
+            </table>
+        </div>
     )
         
   }
