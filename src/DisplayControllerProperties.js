@@ -13,6 +13,21 @@ class DisplayControllerProperties extends React.Component {
    
     }
 
+    componentDidMount() {
+        
+          this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
+          
+        }
+        
+      
+
+
+
+
+
+
+
+
     changeCurrentTempFromLocalStorage=event=>
     
     {        
