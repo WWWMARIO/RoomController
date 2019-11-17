@@ -21,7 +21,7 @@ class ParentComponent extends React.Component {
     }
     
     componentDidMount() {
-        var roomStatusUrl="http://ae.hr/rooms_status.php"
+        var roomStatusUrl="https://ae.hr/rooms_status.php"
         
        
         fetch(roomStatusUrl)
