@@ -13,11 +13,33 @@ class DisplayControllerProperties extends React.Component {
    
     }
 
-    componentDidMount() {
+    /*componentDidMount() {  
         
-          this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
+        
+        this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
+
+        if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
+    {
+      
+      let currentTempByRoomIdLocal={}
+
+      this.props.rooms_status.controllers.forEach(element => {
+        let controllerId=element.id
+        let controllerTemp=element.properties[7].Value
+        currentTempByRoomIdLocal[controllerId]=controllerTemp
+
+      })
+
+      localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
+    }  
+    //else 
+    //this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
+
+        
+      }*/
+
           
-        }
+        
         
       
 
