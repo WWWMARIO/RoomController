@@ -26,7 +26,7 @@ class QRCode extends React.Component {
     return (
         <div>
             <button onClick={this.onClickGenerateQRCode}>Generate QR Code</button><br></br>
-            {this.state.qrUrl!==""?<img src={this.state.qrUrl}></img>:""}
+            {this.state.qrUrl!==""?<img src={this.state.qrUrl} alt={"qr kod replacement"}></img>:""}
         </div>
 
     )
