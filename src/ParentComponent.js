@@ -42,16 +42,32 @@ class ParentComponent extends React.Component {
         if (rowId==="home")
         {
           this.setState({expandedRow : ""})
+          window.scrollTo(0, 0)
         }
-        else 
-        {
-          var elmnt = document.getElementById("row-"+rowId);
-          elmnt.scrollIntoView({  behavior: 'smooth' });
-        }
+        
         
         if (rowId!==this.state.expandedRow)
         {
-            this.setState({expandedRow : rowId})
+            this.setState({expandedRow : rowId},()  =>{
+              if (rowId!=="home")
+              {
+                var node = document.getElementById("row-"+rowId)
+                var yourHeight = 80;
+                
+                node.scrollIntoView(true);               
+                var scrolledY = window.scrollY;
+
+                if(scrolledY){
+                  window.scroll(0, scrolledY - yourHeight);
+                }
+                
+                
+                
+
+
+              }
+
+            } )
         }
         else
         {
