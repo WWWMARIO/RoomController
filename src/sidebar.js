@@ -91,8 +91,8 @@ class Sidebar extends React.Component {
             return (
 
                 
-                    <tr key={controller.id}>
-                        <td onClick={() => this.props.handleRowClick(controller.id)}>
+                    <tr key={controller.id} style={this.props.expandedRow===controller.id?{background:"lightblue",borderStyle: "solid"}:{background:"white"}}>
+                        <td  onClick={() => this.props.handleRowClick(controller.id)} >
                         {controller.zone}
                         </td>
                     </tr>  

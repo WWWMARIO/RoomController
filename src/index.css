@@ -20,7 +20,18 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+ 
+ 
+  
+  
+
+ 
  html {
+  max-width: 80%;
+  /*overflow-x: hidden;*/
+  
+
+  
   line-height: 1.15;
   /* 1 */
   -webkit-text-size-adjust: 100%;
@@ -838,17 +849,15 @@ caption {
 }
 
 /* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
+.sidenav td { 
+ 
+  font-size: 0.9em;
+  
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
+.sidenav td:hover {
+  background: lightblue;
 }
 
 /* Style page content */
@@ -856,6 +865,9 @@ caption {
   margin-left: 160px; /* Same as the width of the sidebar */
   padding: 0px 10px;
   margin-top:  80px;
+  
+  
+  
 }
 
 
@@ -866,7 +878,7 @@ caption {
   z-index: 2; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  background-color:white; /* Black */
+  background-color:white; 
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
   border-bottom: medium solid black;

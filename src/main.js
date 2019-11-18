@@ -53,19 +53,8 @@ class Main extends React.Component {
 
       localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
     }  
-    //else 
-    //this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
-
-        
+            
       }
-
-
-
-
-
-
-    
-
    
         
     handleClickDetailsOrSetting=()=> {    
@@ -87,7 +76,7 @@ class Main extends React.Component {
         return(
             <tr  key={"row-expanded-" + item.id}>
                 <td colSpan={3}>
-                        <div style={{float: "left"}} >
+                        <div style={{float: "left",marginRight:"100px"}} >
                             {displayControllerDetails(item)}   
                         </div>
                         <div style={{float: "left"}}> 
@@ -100,7 +89,7 @@ class Main extends React.Component {
     else
     return(<tr>
                 <td colSpan={3}>
-                    <div style={{float: "left"} }>{displayControllerSettings(item)}</div>
+                    <div style={{float: "left", marginRight:"100px"} }>{displayControllerSettings(item)}</div>
                     <div style={{float: "left"}}><QRCode item={item}/></div>
                 </td>
             </tr>)
@@ -113,9 +102,9 @@ class Main extends React.Component {
     renderItem(item) {
         
         const itemRows = [
-			<tr  key={"row-data-" + item.id} style={{backgroundColor: "lightblue"}}>
-			    <td><button onClick={() => this.props.handleRowClick(item.id)}>{item.zone}</button></td>
-			    <td>{item.name}</td>
+			<tr id={"row-"+item.id}  key={"row-data-" + item.id} style={{backgroundColor: "lightblue"}}>
+			    <td   ><button   onClick={() => this.props.handleRowClick(item.id)}>{item.zone}</button></td>
+			    <td >{item.name}</td>
 			    <td>{item.address}{this.props.expandedRow===item.id?<button onClick={()=>{this.handleClickDetailsOrSetting()}}>
                     {this.state.displayDetailsOrSetting===0?"Settings":"Details"}</button>:""}
                 </td>	
