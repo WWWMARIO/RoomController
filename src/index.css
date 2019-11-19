@@ -28,6 +28,7 @@
  
  html {
   max-width: 80%;
+ ;
   /*overflow-x: hidden;*/
   
 
@@ -844,8 +845,10 @@ caption {
   background-color:white; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
+  
   border-right: medium solid black;
   margin-top:  80px;
+  
 }
 
 /* The navigation menu links */

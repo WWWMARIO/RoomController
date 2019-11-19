@@ -13,7 +13,7 @@ class Sidebar extends React.Component {
 
     componentDidMount() {
         var today=new Date();
-        var apiKey="a33fb383ebe0e89522a090641a79bd07337ba94b"
+        var apiKey="623928f68a0b62c099313091850fad51b0c7f84e"
         var country="hr"
         var year=today.getFullYear()
         var nextYear=Number(today.getFullYear()+1)
