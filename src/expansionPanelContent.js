@@ -5,6 +5,7 @@ import displayControllerDetails from './displayControllerDetails.js'
 import DisplayControllerProperties from './DisplayControllerProperties.js'
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 
 class ExpansionPanelContent extends React.Component {
@@ -41,8 +42,8 @@ class ExpansionPanelContent extends React.Component {
   
         
         <Paper style={{ width: '100%', overflowX: 'auto',}} > 
-            <div /*style={{float: "left"}}*/ >
-                <Button variant="contained" color="primary" onClick={this.handleClickDetailsOrSetting}>{this.state.displayDetailsOrSetting===0?"Settings  &  QrCode":"Details & Properties"}</Button>
+            <div  > 
+                <Button variant="contained" color="primary" onClick={this.handleClickDetailsOrSetting} startIcon={<SettingsIcon />}> {this.state.displayDetailsOrSetting===0?"Settings  &  QrCode":"Details & Properties"}</Button>
             </div>
                      
             <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} >
