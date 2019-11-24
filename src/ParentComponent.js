@@ -1,12 +1,6 @@
 import React from 'react'
 import Layout from './Layout'
 
-
-
-
-
-
-
 class ParentComponent extends React.Component {
 
     constructor(props){
@@ -15,7 +9,7 @@ class ParentComponent extends React.Component {
         this.state = { 
           expandedRow : "",        
                   
-          }          
+          }      
           
     
     }
@@ -70,7 +64,6 @@ class ParentComponent extends React.Component {
         {
             this.setState({expandedRow : ""})
         }
-        //this.setState({displayDetailsOrSetting : 0})
         
     } 
       

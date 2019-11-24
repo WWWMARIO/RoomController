@@ -29,19 +29,19 @@ class ControllerExpansionPanels extends React.Component {
           <div style={{flexGrow: "1"}}>            
             <Grid container item xs={12} spacing={3}>
               <Grid item xs={4}>           
-                  Zone:{this.props.controller.zone}
+                  Zone {this.props.controller.zone}
               </Grid>
               <Grid item xs={4}>
                   {this.props.controller.name}
               </Grid>
               <Grid item xs={4}>           
-                  Address:{this.props.controller.address}            
+                  Address {this.props.controller.address}            
               </Grid>
             </Grid>
           </div>          
         </ExpansionPanelSummary>
 
-        <ExpansionPanelDetails style={{minHeight:"450px"}}/*className={classes.details}*/>
+        <ExpansionPanelDetails style={{minHeight:"450px"}}>
           <ExpansionPanelContent displayDetailsOrSetting={this.props.displayDetailsOrSetting} 
           handleClickDetailsOrSetting={this.props.handleClickDetailsOrSetting} controller={this.props.controller}/>
         </ExpansionPanelDetails>        

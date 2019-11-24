@@ -1,6 +1,6 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography';
-import { typography } from '@material-ui/system';
+
 
 
 class NextHoliday extends React.Component {
@@ -80,11 +80,11 @@ class NextHoliday extends React.Component {
                         })
                        
         }
-    }   
+    }  
 
        
     render(){
-    
+            
         return(
                 
     <div >

@@ -2,8 +2,6 @@ import React from 'react'
 import ControllerExpansionPanels from './ControllerExpansionPanels'
 
 
-
-
 class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -11,31 +9,17 @@ class Main extends React.Component {
         this.state = {
 
         };
-    } 
-
-
-
-   
-        
-    
-    
+    }     
 
     renderItem(item) {
         
-        const itemRows = [
-			  
+        const itemRows = [			  
                 <ControllerExpansionPanels controller={item} expandedRow={this.props.expandedRow} 
-                handleRowClick={this.props.handleRowClick} /*displayDetailsOrSetting={this.state.displayDetailsOrSetting}*/
-                handleClickDetailsOrSetting={this.handleClickDetailsOrSetting}/>    
-            
+                handleRowClick={this.props.handleRowClick} handleClickDetailsOrSetting={this.handleClickDetailsOrSetting}/> 
         ];
         
         return itemRows;    
     }
-
-
-
-
     
     render() {
         let allItemRows = [];
@@ -46,10 +30,8 @@ class Main extends React.Component {
         });
         
         return (         
-                <div style={{paddingBottom:"650px"}}>
-                
-			        {allItemRows}
-                 
+                <div style={{paddingBottom:"650px"}}>                
+			        {allItemRows}                 
                 </div>
         );
     }

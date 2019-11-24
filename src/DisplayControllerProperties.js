@@ -2,8 +2,7 @@ import React from 'react'
 import Table from '@material-ui/core/Table';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+
 
 
 
@@ -20,10 +19,6 @@ class DisplayControllerProperties extends React.Component {
           }    
    
     }
-
-   
-
-
 
     changeCurrentTempFromLocalStorage=event=>
     
@@ -60,8 +55,8 @@ class DisplayControllerProperties extends React.Component {
             <TableCell>Set temperature:</TableCell>
             <TableCell>{this.state.CurrentTempFromLocalStorage[this.props.item.id]}
                 
-            <button variant="contained" value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
-            <button variant="contained" value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</button>
+            <button style={{fontSize: "22px"}} value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
+            <button style={{fontSize: "22px",padding: "0px 12px"}} value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</button>
                          
             
             </TableCell>

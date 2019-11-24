@@ -119,10 +119,8 @@ export default function Layout(props) {
        
         <Divider />
 
-        <DisplayZoneList rooms_status={props.rooms_status} handleRowLinkClick={props.handleRowLinkClick} expandedRow={props.expandedRow} />
+          <DisplayZoneList rooms_status={props.rooms_status} handleRowLinkClick={props.handleRowLinkClick} expandedRow={props.expandedRow} />
         
-
-
         <Divider />
         <Typography variant="caption" >
           <NextHoliday/>
@@ -135,7 +133,10 @@ export default function Layout(props) {
       >
         <div className={classes.drawerHeader} />
         <Typography paragraph>
-          {JSON.parse(localStorage.getItem("currentTemperatureLocal")) !==null?<Main rooms_status={props.rooms_status} handleRowClick={props.handleRowClick} expandedRow={props.expandedRow}/>:null}
+
+          {JSON.parse(localStorage.getItem("currentTemperatureLocal")) !==null?<Main rooms_status={props.rooms_status} 
+          handleRowClick={props.handleRowClick} expandedRow={props.expandedRow}/>:null}
+          
         </Typography>
       </main>
     </div>

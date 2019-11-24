@@ -18,9 +18,7 @@ class ExpansionPanelContent extends React.Component {
         };
     }
 
-
-    handleClickDetailsOrSetting=()=> {    
-        
+    handleClickDetailsOrSetting=()=> {            
         
         if (this.state.displayDetailsOrSetting===0)
         {
@@ -35,7 +33,6 @@ class ExpansionPanelContent extends React.Component {
   
   
   
-  
    render(){
   
    
@@ -45,12 +42,12 @@ class ExpansionPanelContent extends React.Component {
         
         <Paper style={{ width: '100%', overflowX: 'auto',}} >        
                      
-            <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} /*ClassName={clsx(classes.detailsColumn, classes.helper)}*/>
-              {/*<Typography variant="caption">*/}
+            <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} >
+             
                 {this.state.displayDetailsOrSetting===1?displayControllerSettings(this.props.controller):displayControllerDetails(this.props.controller)} 
-              {/*</Typography>*/}
+             
             </div>
-            <div  style={{ float: "left",paddingRight: "50px",minWidth:"400px"}} /*className={classes.detailsColumn}*/>
+            <div  style={{ float: "left",paddingRight: "50px",minWidth:"400px"}} >
                 {this.state.displayDetailsOrSetting===1?<QRCode controller={this.props.controller}/>:<DisplayControllerProperties item={this.props.controller}/>} 
             </div>
             <div style={{float: "left"}} >
