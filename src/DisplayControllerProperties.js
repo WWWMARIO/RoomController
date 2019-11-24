@@ -6,28 +6,22 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 
+
+
 class DisplayControllerProperties extends React.Component {
 
     constructor(props){
         super(props)
-    //this.setState({CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))})
 
 
         this.state = {       
-            //CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))
-            CurrentTempFromLocalStorage:""
+            CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))
+            
           }    
    
     }
 
-    componentDidMount() { 
-        setTimeout(() => {
-            console.log( "this.setState")
-
-            this.setState({CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))})
-          }, 1000)        
-        
-        }
+   
 
 
 

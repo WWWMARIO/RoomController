@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
+
 
 
 class QRCode extends React.Component {
@@ -25,7 +27,7 @@ class QRCode extends React.Component {
 
     return (
         <div>
-            <button onClick={this.onClickGenerateQRCode}>Generate QR Code</button><br></br>
+            <Button variant="contained" color="primary" onClick={this.onClickGenerateQRCode}>Generate QR Code</Button><br></br>
             {this.state.qrUrl!==""?<img src={this.state.qrUrl} alt={"qr kod replacement"}></img>:""}
         </div>
 

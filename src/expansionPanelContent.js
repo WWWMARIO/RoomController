@@ -4,6 +4,7 @@ import displayControllerSettings from './displayControllerSettings.js'
 import displayControllerDetails from './displayControllerDetails.js'
 import DisplayControllerProperties from './DisplayControllerProperties.js'
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 
 class ExpansionPanelContent extends React.Component {
@@ -12,10 +13,25 @@ class ExpansionPanelContent extends React.Component {
         
         
         this.state = {
+            displayDetailsOrSetting: 0,
   
         };
     }
-  
+
+
+    handleClickDetailsOrSetting=()=> {    
+        
+        
+        if (this.state.displayDetailsOrSetting===0)
+        {
+            this.setState({displayDetailsOrSetting:1})            
+        }
+        else
+        {
+            this.setState({displayDetailsOrSetting:0})
+        }
+        
+    }  
   
   
   
@@ -31,14 +47,14 @@ class ExpansionPanelContent extends React.Component {
                      
             <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} /*ClassName={clsx(classes.detailsColumn, classes.helper)}*/>
               {/*<Typography variant="caption">*/}
-                {this.props.displayDetailsOrSetting===1?displayControllerSettings(this.props.controller):displayControllerDetails(this.props.controller)} 
+                {this.state.displayDetailsOrSetting===1?displayControllerSettings(this.props.controller):displayControllerDetails(this.props.controller)} 
               {/*</Typography>*/}
             </div>
-            <div  style={{ float: "left",paddingRight: "50px",minWidth:"350px"}} /*className={classes.detailsColumn}*/>
-                {this.props.displayDetailsOrSetting===1?<QRCode controller={this.props.controller}/>:<DisplayControllerProperties item={this.props.controller}/>} 
+            <div  style={{ float: "left",paddingRight: "50px",minWidth:"400px"}} /*className={classes.detailsColumn}*/>
+                {this.state.displayDetailsOrSetting===1?<QRCode controller={this.props.controller}/>:<DisplayControllerProperties item={this.props.controller}/>} 
             </div>
             <div style={{float: "left"}} >
-                <button onClick={this.props.handleClickDetailsOrSetting}>promjeni</button>
+                <Button variant="contained" color="primary" onClick={this.handleClickDetailsOrSetting}>{this.state.displayDetailsOrSetting===0?"Settings  &  QrCode":"Details & Properties"}</Button>
             </div>
 
         </Paper>     
