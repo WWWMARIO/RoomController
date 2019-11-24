@@ -1,8 +1,6 @@
 import React from 'react'
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -12,39 +10,24 @@ class DisplayControllerProperties extends React.Component {
 
     constructor(props){
         super(props)
+    //this.setState({CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))})
 
 
         this.state = {       
-            CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))
+            //CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))
+            CurrentTempFromLocalStorage:""
           }    
    
     }
 
-    /*componentDidMount() { 
+    componentDidMount() { 
+        setTimeout(() => {
+            console.log( "this.setState")
 
-        this.setState({CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))})
+            this.setState({CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))})
+          }, 1000)        
         
-        /*this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
-
-        if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
-    {
-      
-      let currentTempByRoomIdLocal={}
-
-      this.props.rooms_status.controllers.forEach(element => {
-        let controllerId=element.id
-        let controllerTemp=element.properties[7].Value
-        currentTempByRoomIdLocal[controllerId]=controllerTemp
-
-      })
-
-      localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
-    }  
-    else 
-    this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })*/
-
-        
-      //}
+        }
 
 
 

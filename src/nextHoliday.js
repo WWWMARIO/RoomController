@@ -80,10 +80,6 @@ class NextHoliday extends React.Component {
                         })
                        
         }
-         
-       
-
-
     }   
 
        

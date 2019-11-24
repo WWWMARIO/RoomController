@@ -1,9 +1,5 @@
 import React from 'react'
-//import Topbar from './topbar.js'
-//import Sidebar from './sidebar.js'
-//import Main from './main.js'
-import rooms_status2 from './rooms_status2'
-import Template from './template'
+import Layout from './Layout'
 
 
 
@@ -14,68 +10,15 @@ import Template from './template'
 class ParentComponent extends React.Component {
 
     constructor(props){
-        super(props)
-
-
-
-        
+        super(props)        
       
         this.state = { 
-          expandedRow : "",
-          //rooms_status: rooms_status2
+          expandedRow : "",        
                   
           }          
           
     
     }
-
-    /*componentDidMount() {        
-        
-    this.setState({ rooms_status: rooms_status2 },()=>
-    {
-      if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
-  {
-    console.log("stora is null")
-    
-    let currentTempByRoomIdLocal={}
-
-    this.state.rooms_status.controllers.forEach(element => {
-      let controllerId=element.id
-      let controllerTemp=element.properties[7].Value
-      currentTempByRoomIdLocal[controllerId]=controllerTemp
-
-    })
-
-    localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
-  }  
-}
-//)
-          
-    }*/
-
-
-    /*componentDidMount() {        
-        
-
-      if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
-  {
-    
-    let currentTempByRoomIdLocal={}
-
-    this.props.rooms_status.controllers.forEach(element => {
-      let controllerId=element.id
-      let controllerTemp=element.properties[7].Value
-      currentTempByRoomIdLocal[controllerId]=controllerTemp
-
-    })
-
-    localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
-  }  
-          
-    }*/
-
-
-
 
     
     componentDidMount() {
@@ -88,43 +31,29 @@ class ParentComponent extends React.Component {
                      
           this.setState({ rooms_status: responseJson },()=>
           {
-
-            {      
-        
-
+            {
               if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
-          {
-            
-            let currentTempByRoomIdLocal={}
-        
-            this.state.rooms_status.controllers.forEach(element => {
-              let controllerId=element.id
-              let controllerTemp=element.properties[7].Value
-              currentTempByRoomIdLocal[controllerId]=controllerTemp
-        
-            })
-        
-            localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
-          }  
+                {
+                  
+                  let currentTempByRoomIdLocal={}
+              
+                  this.state.rooms_status.controllers.forEach(element => {
+                    let controllerId=element.id
+                    let controllerTemp=element.properties[7].Value
+                    currentTempByRoomIdLocal[controllerId]=controllerTemp
+              
+                  })
+              
+                  localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
+                  this.setState({localTempUpdated : true})
+                }  
                   
             }
-
-
-
-
-
-
-
-
-
-
-          })          
-          //this.setState({ rooms_status: rooms_status2 })       
+          })       
+              
         })
-        .catch(console.log)    
-      }   
-
-      
+        .catch(console.log)  
+      }         
       
       
       handleRowClick=(rowId)=> {
@@ -152,176 +81,63 @@ class ParentComponent extends React.Component {
         this.setState({expandedRow : ""})
         window.scrollTo(0, 0)
       }
-      
-      if (rowId!==this.state.expandedRow) {
-        
-        if (this.state.expandedRow==="")
-        {
-          setTimeout(() => 
-        {{        
-
-          if (rowId!=="home")
-          {
-            var node = document.getElementById("row-"+rowId)
-            var yourHeight = 75;
-            
-            node.scrollIntoView(true);               
-            var scrolledY = window.scrollY;
-
-            if(scrolledY){
-              window.scrollTo({
-                top: scrolledY - yourHeight,
-                left: 0,
-                behavior: 'smooth'
-              });
-            }
-          }
-
-        }}, 0);        
-        
-        
-        setTimeout(() => 
-        {{
-          if (rowId!=="home")
-          {
-            this.setState({expandedRow : rowId})
-          }
-          /*else if (rowId!=="")
-          {
-            this.setState({expandedRow : ""})
-          }*/
-
-        }}, 500)
-
-        }
 
 
-        else{
-        
-        this.setState({expandedRow : ""})
-
-        setTimeout(() => 
-        {{        
-
-          if (rowId!=="home")
-          {
-            var node = document.getElementById("row-"+rowId)
-            var yourHeight = 75;
-            
-            node.scrollIntoView(true);               
-            var scrolledY = window.scrollY;
-
-            if(scrolledY){
-              window.scrollTo({
-                top: scrolledY - yourHeight,
-                left: 0,
-                behavior: 'smooth'
-              });
-            }
-          }
-
-        }}, 500);        
-        
-        
-        setTimeout(() => 
-        {{
-          if (rowId!=="home")
-          {
-            this.setState({expandedRow : rowId})
-          }
-          /*else if (rowId!=="")
-          {
-            this.setState({expandedRow : ""})
-          }*/
-
-        }}, 1000)};
-    }
-
-    else
+      else if (rowId===this.state.expandedRow)
       {
-          this.setState({expandedRow : ""})
-      }  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /*handleRowLinkClick=(rowId)=> {
-        if (rowId==="home")
-        {
-          this.setState({expandedRow : ""})
-          window.scrollTo(0, 0)
-        }
+        this.setState({expandedRow : ""})
+      }      
+      
         
-        if (rowId!==this.state.expandedRow) {
-          //this.setState({expandedRow : rowId})
+      else if (this.state.expandedRow==="")
+        {              
+            var node = document.getElementById("row-"+rowId)
+            var topBarHeight = 75;
+            
+            node.scrollIntoView(true);               
+            var scrolledY = window.scrollY;
+
+            if(scrolledY){
+                window.scrollTo({
+                top: scrolledY - topBarHeight,
+                left: 0,
+                behavior: 'smooth'
+              });
+            }            
+            setTimeout(() => 
+            {{              
+                this.setState({expandedRow : rowId})                       
+
+            }}, 500)
+        }
+
+
+      else{
+      
+          this.setState({expandedRow : ""})
 
           setTimeout(() => 
           {{
-            if (rowId!=="home")
-            {
               var node = document.getElementById("row-"+rowId)
-              var yourHeight = 80;
+              var topBarHeight = 75;
               
               node.scrollIntoView(true);               
               var scrolledY = window.scrollY;
 
               if(scrolledY){
-                window.scrollTo({
-                  top: scrolledY - yourHeight,
+                window.scrollTo({                  
+                  top: scrolledY - topBarHeight,
                   left: 0,
                   behavior: 'smooth'
                 });
               }
-            }
-
-          }}, 1000);
-      }
-
-      else
-        {
-            this.setState({expandedRow : ""})
-        }*/
-
-
-        
-      
-      
-      
-      
-      
-      /*if (rowId!==this.state.expandedRow)
-        {
-            this.setState({expandedRow : rowId}/*,()  =>{
-              if (rowId!=="home")
-              {
-                var node = document.getElementById("row-"+rowId)
-                var yourHeight = 80;
-                
-                node.scrollIntoView(true);               
-                var scrolledY = window.scrollY;
-
-                if(scrolledY){
-                  window.scrollTo(0, scrolledY - yourHeight);
-                }
-                
-                
-                
-
-
-              }
-
-            } )
-        }
-        else
-        {
-            this.setState({expandedRow : ""})
-        }
-        //this.setState({displayDetailsOrSetting : 0})*/
+          }}, 500);        
+          
+          
+          setTimeout(() => 
+          {{
+              this.setState({expandedRow : rowId})
+          }}, 1000)};        
         
     }
 
@@ -332,17 +148,11 @@ class ParentComponent extends React.Component {
     return (
       <div>
         {this.state.rooms_status?
-        <Template rooms_status={this.state.rooms_status} handleRowLinkClick={this.handleRowLinkClick}
+        <Layout rooms_status={this.state.rooms_status} handleRowLinkClick={this.handleRowLinkClick}
         handleRowClick={this.handleRowClick} expandedRow={this.state.expandedRow}
         />:null }
-      </div>
+      </div>       
         
-        /*<div>
-            
-          <Topbar/>
-        {this.state.rooms_status?<Sidebar  expandedRow={this.state.expandedRow} rooms_status={this.state.rooms_status} handleRowLinkClick={this.handleRowLinkClick} />:null }  
-        {this.state.rooms_status?<Main rooms_status={this.state.rooms_status} handleRowClick={this.handleRowClick} expandedRow={this.state.expandedRow}/>:null }
-        </div>}*/
     )
         
   }

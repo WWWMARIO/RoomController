@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-class Topbar extends React.Component {
+class AirQualityInfo extends React.Component {
 
     constructor(props){
         super(props)       
@@ -59,4 +59,4 @@ class Topbar extends React.Component {
   }  
 
 
-  export default Topbar
+  export default AirQualityInfo

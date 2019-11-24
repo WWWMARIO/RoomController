@@ -9,15 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-/*import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';*/
-import Topbar from './topbar';
+import AirQualityInfo from './AirQualityInfo';
 import Main from './main';
 import NextHoliday from './nextHoliday'
 import DisplayZoneList from './displayZoneList';
@@ -45,9 +37,7 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  /*hide: {
-    display: 'none',
-  },*/
+  
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -80,10 +70,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Template(props) {
+export default function Layout(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -113,7 +103,7 @@ export default function Template(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="caption" noWrap>
-            <Topbar />
+            <AirQualityInfo />
           </Typography>
         </Toolbar>
       </AppBar>
@@ -126,25 +116,11 @@ export default function Template(props) {
           paper: classes.drawerPaper,
         }}
       >
-        {/*<div className={classes.drawerHeader}>
-          Home
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-      </div>*/}
+       
         <Divider />
 
         <DisplayZoneList rooms_status={props.rooms_status} handleRowLinkClick={props.handleRowLinkClick} expandedRow={props.expandedRow} />
-        {/*<List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts','Inbox', 'Starred', 'Send email', 'Drafts','Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-          </List>*/}
-
-
+        
 
 
         <Divider />
@@ -159,7 +135,7 @@ export default function Template(props) {
       >
         <div className={classes.drawerHeader} />
         <Typography paragraph>
-        {JSON.parse(localStorage.getItem("currentTemperatureLocal")) !==null?<Main rooms_status={props.rooms_status} handleRowClick={props.handleRowClick} expandedRow={props.expandedRow}/>:null}
+          {JSON.parse(localStorage.getItem("currentTemperatureLocal")) !==null?<Main rooms_status={props.rooms_status} handleRowClick={props.handleRowClick} expandedRow={props.expandedRow}/>:null}
         </Typography>
       </main>
     </div>
