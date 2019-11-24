@@ -159,7 +159,7 @@ export default function Template(props) {
       >
         <div className={classes.drawerHeader} />
         <Typography paragraph>
-          <Main rooms_status={props.rooms_status} handleRowClick={props.handleRowClick} expandedRow={props.expandedRow}/>
+        {JSON.parse(localStorage.getItem("currentTemperatureLocal")) !==null?<Main rooms_status={props.rooms_status} handleRowClick={props.handleRowClick} expandedRow={props.expandedRow}/>:null}
         </Typography>
       </main>
     </div>

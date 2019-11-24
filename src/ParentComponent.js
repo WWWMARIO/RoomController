@@ -16,26 +16,112 @@ class ParentComponent extends React.Component {
     constructor(props){
         super(props)
 
+
+
+        
+      
         this.state = { 
-          expandedRow : ""
+          expandedRow : "",
+          //rooms_status: rooms_status2
                   
           }          
           
     
     }
+
+    /*componentDidMount() {        
+        
+    this.setState({ rooms_status: rooms_status2 },()=>
+    {
+      if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
+  {
+    console.log("stora is null")
+    
+    let currentTempByRoomIdLocal={}
+
+    this.state.rooms_status.controllers.forEach(element => {
+      let controllerId=element.id
+      let controllerTemp=element.properties[7].Value
+      currentTempByRoomIdLocal[controllerId]=controllerTemp
+
+    })
+
+    localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
+  }  
+}
+//)
+          
+    }*/
+
+
+    /*componentDidMount() {        
+        
+
+      if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
+  {
+    
+    let currentTempByRoomIdLocal={}
+
+    this.props.rooms_status.controllers.forEach(element => {
+      let controllerId=element.id
+      let controllerTemp=element.properties[7].Value
+      currentTempByRoomIdLocal[controllerId]=controllerTemp
+
+    })
+
+    localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
+  }  
+          
+    }*/
+
+
+
+
     
     componentDidMount() {
-        /*var roomStatusUrl="https://ae.hr/rooms_status.php"
+        var roomStatusUrl="https://ae.hr/rooms_status.php"
         
        
         fetch(roomStatusUrl)
         .then(response => response.json())
-        .then((responseJson) => {*/
+        .then((responseJson) => {
                      
-          /*this.setState({ rooms_status: responseJson })   */       
-          this.setState({ rooms_status: rooms_status2 })       
-        /*})
-        .catch(console.log)*/        
+          this.setState({ rooms_status: responseJson },()=>
+          {
+
+            {      
+        
+
+              if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
+          {
+            
+            let currentTempByRoomIdLocal={}
+        
+            this.state.rooms_status.controllers.forEach(element => {
+              let controllerId=element.id
+              let controllerTemp=element.properties[7].Value
+              currentTempByRoomIdLocal[controllerId]=controllerTemp
+        
+            })
+        
+            localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
+          }  
+                  
+            }
+
+
+
+
+
+
+
+
+
+
+          })          
+          //this.setState({ rooms_status: rooms_status2 })       
+        })
+        .catch(console.log)    
       }   
 
       

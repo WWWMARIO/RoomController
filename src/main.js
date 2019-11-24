@@ -6,28 +6,11 @@ import DisplayControllerProperties from './DisplayControllerProperties.js'
 import ControlledExpansionPanels from './ControlledExpansionPanels'
 
 
-/*const TableHead= () =>
-{
-    return(        
-    <thead>
-        <tr>
-            <td style={{width:"33.33%"}}>Zone</td>
-            <td style={{width:"33.33%"}}>Name</td>
-            <td style={{width:"33.33%"}}>Address</td>
-        </tr>
-    </thead>
-    
-    )
-}*/
-
-
-
-
 
 
 class Main extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         this.state = {
             
@@ -37,7 +20,8 @@ class Main extends React.Component {
         };
     }
 
-    componentDidMount() {        
+    /*componentDidMount() {  
+
         
 
         if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
@@ -55,11 +39,33 @@ class Main extends React.Component {
       localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
     }  
             
-      }
+      }*/
+      /*componentDidMount() {        
+        
+
+        if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
+    {
+      
+      let currentTempByRoomIdLocal={}
+
+      this.props.rooms_status.controllers.forEach(element => {
+        let controllerId=element.id
+        let controllerTemp=element.properties[7].Value
+        currentTempByRoomIdLocal[controllerId]=controllerTemp
+
+      })
+
+      localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
+    }  
+            
+      }*/
+
+
+
    
         
     handleClickDetailsOrSetting=()=> {    
-        console.log("click")
+        
         
         if (this.state.displayDetailsOrSetting===0)
         {

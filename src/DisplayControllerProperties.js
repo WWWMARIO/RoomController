@@ -20,10 +20,11 @@ class DisplayControllerProperties extends React.Component {
    
     }
 
-    /*componentDidMount() {  
+    /*componentDidMount() { 
+
+        this.setState({CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal"))})
         
-        
-        this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
+        /*this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
 
         if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
     {
@@ -39,21 +40,11 @@ class DisplayControllerProperties extends React.Component {
 
       localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
     }  
-    //else 
-    //this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })
+    else 
+    this.setState({ CurrentTempFromLocalStorage:JSON.parse(localStorage.getItem("currentTemperatureLocal")) })*/
 
         
-      }*/
-
-          
-        
-        
-      
-
-
-
-
-
+      //}
 
 
 
@@ -64,11 +55,11 @@ class DisplayControllerProperties extends React.Component {
            
         if (event.target.value==='+')
         {
-            CurrentTempFromLocalStorage[this.props.item.id]=Number(CurrentTempFromLocalStorage[this.props.item.id])+1
+            CurrentTempFromLocalStorage[this.props.item.id]=String(Number(CurrentTempFromLocalStorage[this.props.item.id])+1)
         }            
         if (event.target.value==='-')
         {
-            CurrentTempFromLocalStorage[this.props.item.id]=Number(CurrentTempFromLocalStorage[this.props.item.id])-1
+            CurrentTempFromLocalStorage[this.props.item.id]=String(Number(CurrentTempFromLocalStorage[this.props.item.id])-1)
         }
         localStorage.setItem("currentTemperatureLocal",JSON.stringify(CurrentTempFromLocalStorage))
        
@@ -91,10 +82,10 @@ class DisplayControllerProperties extends React.Component {
         <TableRow>
             <TableCell>Set temperature:</TableCell>
             <TableCell>{this.state.CurrentTempFromLocalStorage[this.props.item.id]}
-                <ButtonGroup variant="contained" color="primary" aria-label="outlined primary button group">
-                    <Button value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</Button>
-                    <Button value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</Button>
-                </ButtonGroup>          
+                
+            <button variant="contained" value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
+            <button variant="contained" value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</button>
+                         
             
             </TableCell>
         </TableRow>
