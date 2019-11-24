@@ -50,7 +50,7 @@ class AirQualityInfo extends React.Component {
         return(
                 
     <div >
-         Air quality in Rijeka, latest measurements {this.state.airQualityRijeka && this.displayAirQualityData()}
+    Air quality in Rijeka, latest measurements:{<br/>} {this.state.airQualityRijeka && this.displayAirQualityData()}
          
          
     </div>
