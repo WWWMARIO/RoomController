@@ -11,12 +11,12 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import List from '@material-ui/core/List';
+/*import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import MailIcon from '@material-ui/icons/Mail';*/
 import Topbar from './topbar';
 import Main from './main';
 import NextHoliday from './nextHoliday'
@@ -45,9 +45,9 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  hide: {
+  /*hide: {
     display: 'none',
-  },
+  },*/
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
 export default function Template(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -106,14 +106,14 @@ export default function Template(props) {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={open?handleDrawerClose:handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
+            className={clsx(classes.menuButton, open /*&& classes.hide*/)}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="caption" noWrap>
-            <Topbar/>
+            <Topbar />
           </Typography>
         </Toolbar>
       </AppBar>
@@ -126,12 +126,12 @@ export default function Template(props) {
           paper: classes.drawerPaper,
         }}
       >
-        <div className={classes.drawerHeader}>
+        {/*<div className={classes.drawerHeader}>
           Home
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
-        </div>
+      </div>*/}
         <Divider />
 
         <DisplayZoneList rooms_status={props.rooms_status} handleRowLinkClick={props.handleRowLinkClick} expandedRow={props.expandedRow} />

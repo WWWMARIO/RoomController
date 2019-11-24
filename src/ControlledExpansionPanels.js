@@ -12,6 +12,7 @@ import Divider from '@material-ui/core/Divider';
 import clsx from 'clsx';
 import QRCode from './qrcode.js'
 import ExpansionPanelContent from './expansionPanelContent'
+import Grid from '@material-ui/core/Grid';
 
 
 
@@ -49,16 +50,39 @@ class ControlledExpansionPanels extends React.Component {
   expandIcon={<ExpandMoreIcon/> }
           aria-controls="panel1bh-content"
                 >
-          <div >            
-              Zone:{this.props.controller.zone}        
+          <div style={{flexGrow: "1"}}>
             
+          <Grid container item xs={12} spacing={3}>
+            <Grid item xs={4}>           
+                Zone:{this.props.controller.zone}       
+              
+            </Grid>
+            <Grid item xs={4}>
+                {this.props.controller.name}
+            </Grid>
+            <Grid item xs={4}>           
+                Address:{this.props.controller.address}            
+            </Grid>
+          </Grid>
           </div>
-          <div>
-              {this.props.controller.name}
-          </div>
-          <div>            
-              Adress:{this.props.controller.address}            
-          </div>
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           
         </ExpansionPanelSummary>
 

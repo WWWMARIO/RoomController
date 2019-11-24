@@ -28,12 +28,12 @@ class ExpansionPanelContent extends React.Component {
         
         <div >        
                      
-            <tr  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} /*ClassName={clsx(classes.detailsColumn, classes.helper)}*/>
+            <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} /*ClassName={clsx(classes.detailsColumn, classes.helper)}*/>
               {/*<Typography variant="caption">*/}
                 {this.props.displayDetailsOrSetting===1?displayControllerSettings(this.props.controller):displayControllerDetails(this.props.controller)} 
               {/*</Typography>*/}
-            </tr>
-            <div  style={{ float: "left",paddingRight: "50px"}} /*className={classes.detailsColumn}*/>
+            </div>
+            <div  style={{ float: "left",paddingRight: "50px",minWidth:"350px"}} /*className={classes.detailsColumn}*/>
                 {this.props.displayDetailsOrSetting===1?<QRCode controller={this.props.controller}/>:<DisplayControllerProperties item={this.props.controller}/>} 
             </div>
             <div style={{float: "left"}} >

@@ -1,4 +1,9 @@
 import React from 'react'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 
 const displayControllerSettings= item =>
@@ -10,23 +15,23 @@ const displayControllerSettings= item =>
             return (
              
                 
-                <tr key={index}>                
-                    <td>{row.Id}</td>
-                    <td>{row.settingName}</td>
-                    <td>{row.settingValue}</td>
-                </tr>
+                <TableRow key={index}>                
+                    <TableCell>{row.Id}</TableCell>
+                    <TableCell>{row.settingName}</TableCell>
+                    <TableCell>{row.settingValue}</TableCell>
+                </TableRow>
              
             
         )})
         
         return (
 
-                <tbody>
-                    <tr>
-                        <td colSpan={3}><strong>Settings:</strong></td>
-                    </tr> 
+                <TableBody>
+                    <TableRow>
+                        <TableCell colSpan={3}><strong>Settings:</strong></TableCell>
+                    </TableRow> 
                      {settingsRows}
-                </tbody> 
+                </TableBody> 
                  
     )
 }

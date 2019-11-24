@@ -1,4 +1,9 @@
 import React from 'react'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 
 class DisplayControllerProperties extends React.Component {
@@ -77,30 +82,30 @@ class DisplayControllerProperties extends React.Component {
     
         return(
                 
-    <tbody>
-        <tr>
-            <td colSpan={3}><strong>Properties:</strong></td>
-        </tr>
-        <tr>
-            <td>Set temperature:</td>
-            <td>{this.state.CurrentTempFromLocalStorage[this.props.item.id]}
+    <TableBody >
+        <TableRow style={{width:"1000px"}}>
+            <TableCell colSpan={3}><strong>Properties:</strong></TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Set temperature:</TableCell>
+            <TableCell>{this.state.CurrentTempFromLocalStorage[this.props.item.id]}
                 <button value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
                 <button value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</button>
-            </td>
-        </tr>
-        <tr>
-            <td>Current temperature:</td>
-            <td>{this.props.item.properties[8].Value}</td>
-        </tr>          
-        <tr>
-            <td>{this.props.item.properties[24].Value==="1"?<p>DND</p>:<p></p>}</td>            
-        </tr>
-        <tr>
-            <td>{this.props.item.properties[38].Value==="1"?<p>Occupied</p>:<p></p>} </td>            
-        </tr>        
+            </TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>Current temperature:</TableCell>
+            <TableCell>{this.props.item.properties[8].Value}</TableCell>
+        </TableRow>          
+        <TableRow>
+            <TableCell>{this.props.item.properties[24].Value==="1"?<p>DND</p>:<p></p>}</TableCell>            
+        </TableRow>
+        <TableRow>
+            <TableCell>{this.props.item.properties[38].Value==="1"?<p>Occupied</p>:<p></p>} </TableCell>            
+        </TableRow>        
               
 
-    </tbody>    
+    </TableBody>    
     )
     }
 }

@@ -1,58 +1,63 @@
 import React from 'react'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const displayControllerDetails= item =>
 {
     return(
-    <tbody>
-        <tr>
-            <td colSpan={3}><strong>Details:</strong></td>
-        </tr>
-        <tr>
-            <td>id :</td>
-            <td>{item.id}</td>
-        </tr>    
+    <TableBody>
+        <TableRow>
+            <TableCell colSpan={3}><strong>Details:</strong></TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>id :</TableCell>
+            <TableCell>{item.id}</TableCell>
+        </TableRow>    
         
-        <tr>
-            <td>name:</td>
-            <td>{item.name}</td>
-        </tr>         
-        <tr>
-            <td>address:</td>
-            <td>{item.address}</td>
-        </tr>         
-        <tr>
-            <td>object:</td>
-            <td>{item.object}</td>
-        </tr>         
-        <tr>
-            <td>subObject:</td>
-            <td>{item.subObject}</td>
-        </tr>         
-        <tr>
-            <td>zone:</td>
-            <td>{item.zone}</td>
-        </tr>         
-        <tr>
-            <td>subZone:</td>
-            <td>{item.subZone}</td>
-        </tr>
-        <tr>
-            <td>ipAddress:</td>
-            <td>{item.ipAddress}</td>
-        </tr>         
-        <tr>
-            <td>ipPort:</td>
-            <td>{item.ipPort}</td>
-        </tr>
-        <tr>
-            <td>LocalCommandHeatingCooling:</td>
-            <td>{String(item.LocalCommandHeatingCooling)}</td>
-        </tr>         
-        <tr>
-            <td>LocalCommandPanelBlocked:</td>
-            <td>{String(item.LocalCommandPanelBlocked)}</td>
-        </tr> 
-    </tbody>   
+        <TableRow>
+            <TableCell>name:</TableCell>
+            <TableCell>{item.name}</TableCell>
+        </TableRow>         
+        <TableRow>
+            <TableCell>address:</TableCell>
+            <TableCell>{item.address}</TableCell>
+        </TableRow>         
+        <TableRow>
+            <TableCell>object:</TableCell>
+            <TableCell>{item.object}</TableCell>
+        </TableRow>         
+        <TableRow>
+            <TableCell>subObject:</TableCell>
+            <TableCell>{item.subObject}</TableCell>
+        </TableRow>         
+        <TableRow>
+            <TableCell>zone:</TableCell>
+            <TableCell>{item.zone}</TableCell>
+        </TableRow>         
+        <TableRow>
+            <TableCell>subZone:</TableCell>
+            <TableCell>{item.subZone}</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>ipAddress:</TableCell>
+            <TableCell>{item.ipAddress}</TableCell>
+        </TableRow>         
+        <TableRow>
+            <TableCell>ipPort:</TableCell>
+            <TableCell>{item.ipPort}</TableCell>
+        </TableRow>
+        <TableRow>
+            <TableCell>LocalCommandHeatingCooling:</TableCell>
+            <TableCell>{String(item.LocalCommandHeatingCooling)}</TableCell>
+        </TableRow>         
+        <TableRow>
+            <TableCell>LocalCommandPanelBlocked:</TableCell>
+            <TableCell>{String(item.LocalCommandPanelBlocked)}</TableCell>
+        </TableRow> 
+    </TableBody>   
     )
 }
 

@@ -1,5 +1,6 @@
 {
-  "homepage": "https://WWWMARIO.github.io/roomcontroller", "name": "adria",
+  "homepage": "https://WWWMARIO.github.io/roomcontroller",
+  "name": "adria",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,7 +11,9 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-     "deploy": "gh-pages -d build", "predeploy": "npm run build", "start": "react-scripts start",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -29,5 +32,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
