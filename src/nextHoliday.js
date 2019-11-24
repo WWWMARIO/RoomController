@@ -1,7 +1,9 @@
 import React from 'react'
+import Typography from '@material-ui/core/Typography';
+import { typography } from '@material-ui/system';
 
 
-class Sidebar extends React.Component {
+class NextHoliday extends React.Component {
 
     constructor(props){
         super(props)
@@ -82,81 +84,28 @@ class Sidebar extends React.Component {
        
 
 
-    }
-    displayZoneList=()=>
-    { 
-
-        const zoneList =this.props.rooms_status.controllers.map((controller) => {
-           
-            return (
-
-                
-                    <tr key={controller.id} style={this.props.expandedRow===controller.id?{background:"lightblue",borderStyle: "solid"}:{background:"white"}}>
-                        <td  onClick={() => this.props.handleRowClick(controller.id)} >
-                        {controller.zone}
-                        </td>
-                    </tr>  
-        )})
-
-        zoneList.unshift(<tr key={"home"}>
-                            <td onClick={() => this.props.handleRowClick("home")}>Home</td>            
-                        </tr>
-                        )
-
-        
-
-        return (<table>
-                        
-            {zoneList}
-            </table>)
-    }
-
-
+    }   
 
        
     render(){
     
         return(
                 
-    <div className="sidenav"> 
-        {this.displayZoneList()}
-
-
-         <div>The next Croatian holiday is :</div>
+    <div >
+        <Typography>
+        The next Croatian holiday is :<br/>
         { this.state.nextHoliday &&
-                <div>{this.state.nextHoliday.name} {this.state.nextHoliday.date.iso}</div> 
+                <div>{this.state.nextHoliday.name}<br/> {this.state.nextHoliday.date.iso}</div> 
         }
-         
+        <br/>     
+        </Typography>
          
     </div>
     )
     }
   }   
 
-  
 
 
 
-    
-
-
-
-    
-       
-   /* render(){
-    
-        return(
-                
-    <div className="sidenav"> 
-        
-         
-         
-    </div>
-    )
-    }
-  }*/
-
-
-
-
-  export default Sidebar
+  export default NextHoliday

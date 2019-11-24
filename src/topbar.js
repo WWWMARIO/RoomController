@@ -49,7 +49,7 @@ class Topbar extends React.Component {
     
         return(
                 
-    <div className="topbar">
+    <div >
          Air quality in Rijeka, latest measurements {this.state.airQualityRijeka && this.displayAirQualityData()}
          
          

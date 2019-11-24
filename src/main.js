@@ -3,9 +3,10 @@ import QRCode from './qrcode.js'
 import displayControllerSettings from './displayControllerSettings.js'
 import displayControllerDetails from './displayControllerDetails.js'
 import DisplayControllerProperties from './DisplayControllerProperties.js'
+import ControlledExpansionPanels from './ControlledExpansionPanels'
 
 
-const TableHead= () =>
+/*const TableHead= () =>
 {
     return(        
     <thead>
@@ -17,7 +18,7 @@ const TableHead= () =>
     </thead>
     
     )
-}
+}*/
 
 
 
@@ -58,10 +59,11 @@ class Main extends React.Component {
    
         
     handleClickDetailsOrSetting=()=> {    
+        console.log("click")
         
         if (this.state.displayDetailsOrSetting===0)
         {
-            this.setState({displayDetailsOrSetting:1})
+            this.setState({displayDetailsOrSetting:1})            
         }
         else
         {
@@ -70,7 +72,7 @@ class Main extends React.Component {
         
     }
 
-    displayDetailsAndPropertiesOrSettings=item=>{
+    /*displayDetailsAndPropertiesOrSettings=item=>{
 
      if (this.state.displayDetailsOrSetting===0)
         return(
@@ -96,10 +98,10 @@ class Main extends React.Component {
 
     
     
-    }
+    }*/
 
     
-    renderItem(item) {
+    /*renderItem(item) {
         
         const itemRows = [
 			<tr id={"row-"+item.id}  key={"row-data-" + item.id} style={{backgroundColor: "lightblue"}}>
@@ -123,7 +125,26 @@ class Main extends React.Component {
         
         
         return itemRows;    
+    }*/
+
+    renderItem(item) {
+        
+        const itemRows = [
+			  
+                <ControlledExpansionPanels controller={item} expandedRow={this.props.expandedRow} 
+                handleRowClick={this.props.handleRowClick} displayDetailsOrSetting={this.state.displayDetailsOrSetting}
+                handleClickDetailsOrSetting={this.handleClickDetailsOrSetting}/>    
+            
+        ];       
+        
+        
+        
+        return itemRows;    
     }
+
+
+
+
     
     render() {
         let allItemRows = [];
@@ -134,12 +155,12 @@ class Main extends React.Component {
         });
         
         return (         
-                <table className="main">
+                <div style={{paddingBottom:"1000px"}}>
 
-                    {TableHead()} 
-			        <tbody>{allItemRows}</tbody>
+                {/*TableHead()*/} 
+			        {allItemRows}
                  
-                </table>
+                </div>
         );
     }
 }

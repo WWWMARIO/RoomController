@@ -14,7 +14,7 @@ class QRCode extends React.Component {
 
     onClickGenerateQRCode=()=>
     {       
-        let qrLink= "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+this.props.item.name
+        let qrLink= "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+this.props.controller.name
         this.setState({
             qrUrl:qrLink
         })        
