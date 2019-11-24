@@ -13,6 +13,10 @@ import AirQualityInfo from './AirQualityInfo';
 import Main from './main';
 import NextHoliday from './nextHoliday'
 import DisplayZoneList from './displayZoneList';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import HomeIcon from '@material-ui/icons/Home';
 
 const drawerWidth = 240;
 
@@ -116,6 +120,13 @@ export default function Layout(props) {
           paper: classes.drawerPaper,
         }}
       >
+        {/*<div className={classes.drawerHeader} style={{ position: "fixed", zIndex: "5",width:{drawerWidth}}} >
+            <ListItem button key={"home"} onClick={() => props.handleRowLinkClick("home")}>
+                        <ListItemIcon><HomeIcon /> </ListItemIcon>    
+                        <ListItemText >Home</ListItemText>            
+            </ListItem>
+        </div>*/}
+
        
         <Divider />
 

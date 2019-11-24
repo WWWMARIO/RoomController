@@ -41,7 +41,7 @@ class ControllerExpansionPanels extends React.Component {
           </div>          
         </ExpansionPanelSummary>
 
-        <ExpansionPanelDetails style={{minHeight:"450px"}}>
+        <ExpansionPanelDetails style={{minHeight:"500px"}}>
           <ExpansionPanelContent displayDetailsOrSetting={this.props.displayDetailsOrSetting} 
           handleClickDetailsOrSetting={this.props.handleClickDetailsOrSetting} controller={this.props.controller}/>
         </ExpansionPanelDetails>        

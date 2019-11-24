@@ -14,8 +14,9 @@ function displayZoneList(props)
         return (
 
             
-                <ListItem alignItems="center" button key={controller.id} onClick={() => props.handleRowLinkClick(controller.id)} style={props.expandedRow===controller.id?{background:"lightblue"}:{background:"white"}}>
-                    <ListItemText  primary={controller.zone}/>
+                <ListItem button alignItems="center" button key={controller.id} 
+                onClick={() => props.handleRowLinkClick(controller.id)} style={props.expandedRow===controller.id?{background:"lightblue"}:null}>
+                    <ListItemText  >{controller.zone}</ListItemText>   
                     
                 </ListItem>  
     )})

@@ -40,7 +40,10 @@ class ExpansionPanelContent extends React.Component {
     return (
   
         
-        <Paper style={{ width: '100%', overflowX: 'auto',}} >        
+        <Paper style={{ width: '100%', overflowX: 'auto',}} > 
+            <div /*style={{float: "left"}}*/ >
+                <Button variant="contained" color="primary" onClick={this.handleClickDetailsOrSetting}>{this.state.displayDetailsOrSetting===0?"Settings  &  QrCode":"Details & Properties"}</Button>
+            </div>
                      
             <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} >
              
@@ -50,9 +53,7 @@ class ExpansionPanelContent extends React.Component {
             <div  style={{ float: "left",paddingRight: "50px",minWidth:"400px"}} >
                 {this.state.displayDetailsOrSetting===1?<QRCode controller={this.props.controller}/>:<DisplayControllerProperties item={this.props.controller}/>} 
             </div>
-            <div style={{float: "left"}} >
-                <Button variant="contained" color="primary" onClick={this.handleClickDetailsOrSetting}>{this.state.displayDetailsOrSetting===0?"Settings  &  QrCode":"Details & Properties"}</Button>
-            </div>
+            
 
         </Paper>     
             

@@ -55,8 +55,8 @@ class DisplayControllerProperties extends React.Component {
             <TableCell>Set temperature:</TableCell>
             <TableCell>{this.state.CurrentTempFromLocalStorage[this.props.item.id]}
                 
-            <button style={{fontSize: "22px"}} value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
-            <button style={{fontSize: "22px",padding: "0px 12px"}} value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</button>
+            <button style={{height:"35px", width: "35px" , fontSize: "22px"}} value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
+            <button style={{height:"35px", width: "35px", fontSize: "22px"}} value="-" onClick={this.changeCurrentTempFromLocalStorage}> - </button>
                          
             
             </TableCell>
