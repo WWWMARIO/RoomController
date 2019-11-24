@@ -26,12 +26,12 @@ const displayControllerSettings= item =>
         
         return (
 
-                <TableBody>
+                <Table size="small">
                     <TableRow>
                         <TableCell colSpan={3}><strong>Settings:</strong></TableCell>
                     </TableRow> 
                      {settingsRows}
-                </TableBody> 
+                </Table> 
                  
     )
 }

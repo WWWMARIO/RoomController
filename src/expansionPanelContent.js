@@ -3,6 +3,7 @@ import QRCode from './qrcode.js'
 import displayControllerSettings from './displayControllerSettings.js'
 import displayControllerDetails from './displayControllerDetails.js'
 import DisplayControllerProperties from './DisplayControllerProperties.js'
+import Paper from '@material-ui/core/Paper';
 
 
 class ExpansionPanelContent extends React.Component {
@@ -26,7 +27,7 @@ class ExpansionPanelContent extends React.Component {
     return (
   
         
-        <div >        
+        <Paper style={{ width: '100%', overflowX: 'auto',}} >        
                      
             <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} /*ClassName={clsx(classes.detailsColumn, classes.helper)}*/>
               {/*<Typography variant="caption">*/}
@@ -40,7 +41,7 @@ class ExpansionPanelContent extends React.Component {
                 <button onClick={this.props.handleClickDetailsOrSetting}>promjeni</button>
             </div>
 
-        </div>     
+        </Paper>     
             
             
           

@@ -4,6 +4,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 
 class DisplayControllerProperties extends React.Component {
@@ -82,15 +84,18 @@ class DisplayControllerProperties extends React.Component {
     
         return(
                 
-    <TableBody >
-        <TableRow style={{width:"1000px"}}>
+    <Table size="small" >
+        <TableRow >
             <TableCell colSpan={3}><strong>Properties:</strong></TableCell>
         </TableRow>
         <TableRow>
             <TableCell>Set temperature:</TableCell>
             <TableCell>{this.state.CurrentTempFromLocalStorage[this.props.item.id]}
-                <button value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
-                <button value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</button>
+                <ButtonGroup variant="contained" color="primary" aria-label="outlined primary button group">
+                    <Button value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</Button>
+                    <Button value="-" onClick={this.changeCurrentTempFromLocalStorage}>-</Button>
+                </ButtonGroup>          
+            
             </TableCell>
         </TableRow>
         <TableRow>
@@ -105,7 +110,7 @@ class DisplayControllerProperties extends React.Component {
         </TableRow>        
               
 
-    </TableBody>    
+    </Table>    
     )
     }
 }

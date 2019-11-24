@@ -8,7 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 const displayControllerDetails= item =>
 {
     return(
-    <TableBody>
+    <Table size="small">
         <TableRow>
             <TableCell colSpan={3}><strong>Details:</strong></TableCell>
         </TableRow>
@@ -57,7 +57,7 @@ const displayControllerDetails= item =>
             <TableCell>LocalCommandPanelBlocked:</TableCell>
             <TableCell>{String(item.LocalCommandPanelBlocked)}</TableCell>
         </TableRow> 
-    </TableBody>   
+    </Table>   
     )
 }
 

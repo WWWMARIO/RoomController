@@ -155,9 +155,8 @@ class Main extends React.Component {
         });
         
         return (         
-                <div style={{paddingBottom:"1000px"}}>
-
-                {/*TableHead()*/} 
+                <div style={{paddingBottom:"650px"}}>
+                
 			        {allItemRows}
                  
                 </div>
