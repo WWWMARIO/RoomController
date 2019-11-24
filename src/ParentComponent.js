@@ -68,6 +68,7 @@ class ParentComponent extends React.Component {
     } 
       
      
+       
     handleRowLinkClick=(rowId)=> {
       if (rowId==="home")
       {

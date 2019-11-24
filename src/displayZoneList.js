@@ -21,7 +21,7 @@ function displayZoneList(props)
                 </ListItem>  
     )})
 
-    zoneList.unshift(<ListItem button key={"home"} onClick={() => props.handleRowLinkClick("home")}>
+    zoneList.unshift(<ListItem button key={"home"} onClick={() => props.handleRowLinkClick("home")} >
                         <ListItemIcon><HomeIcon /> </ListItemIcon>    
                         <ListItemText >Home</ListItemText>            
                     </ListItem>

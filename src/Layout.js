@@ -87,6 +87,18 @@ export default function Layout(props) {
     setOpen(false);
   };
 
+  /*const handleHomeClick=()=> {
+    var drawer = document.getElementById("drawer");    
+    //drawer.scrollTop = 50; 
+    drawer.scrollLeft += 50;
+    drawer.scrollTop += 10; 
+
+
+      console.log({drawer}) 
+      //document.getElementById('drawer').scrollTop()
+      window.scrollTo(0, 0)    
+  }*/
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -111,7 +123,7 @@ export default function Layout(props) {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
+      <Drawer id="drawer"
         className={classes.drawer}
         variant="persistent"
         anchor="left"
@@ -120,12 +132,20 @@ export default function Layout(props) {
           paper: classes.drawerPaper,
         }}
       >
-        {/*<div className={classes.drawerHeader} style={{ position: "fixed", zIndex: "5",width:{drawerWidth}}} >
-            <ListItem button key={"home"} onClick={() => props.handleRowLinkClick("home")}>
+        
+
+
+
+
+
+
+        <div  style={{ position: "fixed", zIndex: "5",width:"231px",background:"white",paddingTop:"9px"}} >
+            <ListItem button key={"home"} onClick={() => props.handleRowLinkClick("home")} /*onClick={handleHomeClick}*/>
                         <ListItemIcon><HomeIcon /> </ListItemIcon>    
-                        <ListItemText >Home</ListItemText>            
+                        <ListItemText >Home</ListItemText>
+              <Divider />            
             </ListItem>
-        </div>*/}
+      </div>
 
        
         <Divider />
