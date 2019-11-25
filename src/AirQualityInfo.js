@@ -15,7 +15,7 @@ class AirQualityInfo extends React.Component {
         var location="HR0005A"
         
         var openAqURL="https://api.openaq.org/v1/latest?&country="+country+"&location="+location
-        //console.log(openAqURL)
+        
 
 
         fetch(openAqURL)

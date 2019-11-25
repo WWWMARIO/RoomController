@@ -4,10 +4,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 
-
-
-
-class DisplayControllerProperties extends React.Component {
+class DisplayProperties extends React.Component {
 
     constructor(props){
         super(props)
@@ -53,12 +50,10 @@ class DisplayControllerProperties extends React.Component {
         </TableRow>
         <TableRow>
             <TableCell>Set temperature:</TableCell>
-            <TableCell>{this.state.CurrentTempFromLocalStorage[this.props.item.id]}
-                
-            <button style={{height:"32px", width: "32px" , fontSize: "22px"}} value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
-            <button style={{height:"32px", width: "32px", fontSize: "22px"}} value="-" onClick={this.changeCurrentTempFromLocalStorage}> - </button>
-                         
-            
+            <TableCell>
+                {this.state.CurrentTempFromLocalStorage[this.props.item.id]}
+                <button style={{height:"32px", width: "32px" , fontSize: "22px"}} value="+" onClick={this.changeCurrentTempFromLocalStorage}>+</button>
+                <button style={{height:"32px", width: "32px", fontSize: "22px"}} value="-" onClick={this.changeCurrentTempFromLocalStorage}> - </button>                       
             </TableCell>
         </TableRow>
         <TableRow>
@@ -79,4 +74,4 @@ class DisplayControllerProperties extends React.Component {
 }
 
 
-export default DisplayControllerProperties
+export default DisplayProperties

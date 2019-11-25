@@ -15,7 +15,7 @@ class NextHoliday extends React.Component {
 
     componentDidMount() {
         var today=new Date();
-        var apiKey="623928f68a0b62c099313091850fad51b0c7f84e"
+        var apiKey="6d034c65d939a776bfb539b8ff87e8790ddc3d96"
         var country="hr"
         var year=today.getFullYear()
         var nextYear=Number(today.getFullYear()+1)
@@ -27,7 +27,8 @@ class NextHoliday extends React.Component {
         .then((responseJson) => {
             
           this.setState({ holidayListJsonThisYear: responseJson.response.holidays })
-          this.getNextHoliday()          
+          this.getNextHoliday() 
+                 
         })
         .catch(console.log)
 
@@ -58,10 +59,8 @@ class NextHoliday extends React.Component {
                 if (today<currentHoliday )
                 {        
                         this.setState({
-                            nextHoliday:thisYearHolidays[i]
-                             
-                        })                         
-                        
+                            nextHoliday:thisYearHolidays[i]                             
+                        })
                         break
                 }
             } 
@@ -77,10 +76,11 @@ class NextHoliday extends React.Component {
         {
             this.setState({
                             nextHoliday:nextYearHolidays[0]
-                        })
-                       
+                        })                      
         }
+        
     }  
+
 
        
     render(){
@@ -91,7 +91,8 @@ class NextHoliday extends React.Component {
         <Typography>
         The next Croatian holiday is :<br/>
         { this.state.nextHoliday &&
-                <div>{this.state.nextHoliday.name}<br/> {this.state.nextHoliday.date.iso}</div> 
+                <div>{this.state.nextHoliday.name}<br/> 
+                {this.state.nextHoliday.date.datetime.day}.{this.state.nextHoliday.date.datetime.month}.{this.state.nextHoliday.date.datetime.year}. </div> 
         }
         <br/>     
         </Typography>

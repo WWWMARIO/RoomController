@@ -3,7 +3,7 @@ import Table from '@material-ui/core/Table';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
-const displayControllerDetails= item =>
+const displayDetails= item =>
 {
     return(
     <Table size="small">
@@ -60,4 +60,4 @@ const displayControllerDetails= item =>
 }
 
 
-export default displayControllerDetails
+export default displayDetails

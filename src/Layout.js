@@ -86,18 +86,7 @@ export default function Layout(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  /*const handleHomeClick=()=> {
-    var drawer = document.getElementById("drawer");    
-    //drawer.scrollTop = 50; 
-    drawer.scrollLeft += 50;
-    drawer.scrollTop += 10; 
-
-
-      console.log({drawer}) 
-      //document.getElementById('drawer').scrollTop()
-      window.scrollTo(0, 0)    
-  }*/
+  
 
   return (
     <div className={classes.root}>
@@ -114,7 +103,7 @@ export default function Layout(props) {
             aria-label="open drawer"
             onClick={open?handleDrawerClose:handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, open /*&& classes.hide*/)}
+            className={clsx(classes.menuButton, open)}
           >
             <MenuIcon />
           </IconButton>
@@ -132,21 +121,14 @@ export default function Layout(props) {
           paper: classes.drawerPaper,
         }}
       >
-        
-
-
-
-
-
 
         <div  style={{ position: "fixed", zIndex: "5",width:"231px",background:"white",paddingTop:"9px"}} >
-            <ListItem button key={"home"} onClick={() => props.handleRowLinkClick("home")} /*onClick={handleHomeClick}*/>
+            <ListItem button key={"home"} onClick={() => props.handleRowLinkClick("home")} >
                         <ListItemIcon><HomeIcon /> </ListItemIcon>    
                         <ListItemText >Home</ListItemText>
               <Divider />            
             </ListItem>
       </div>
-
        
         <Divider />
 

@@ -4,22 +4,16 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
 
-const displayControllerSettings= item =>
+const displaySettings= item =>
 {         
-        
-       
         const settingsRows =item.settings.map((row,index) => {
            
             return (
-             
-                
                 <TableRow key={index}>                
                     <TableCell>{row.Id}</TableCell>
                     <TableCell>{row.settingName}</TableCell>
                     <TableCell>{row.settingValue}</TableCell>
                 </TableRow>
-             
-            
         )})
         
         return (
@@ -30,8 +24,7 @@ const displayControllerSettings= item =>
                     </TableRow> 
                      {settingsRows}
                 </Table> 
-                 
     )
 }
 
-export default displayControllerSettings
+export default displaySettings

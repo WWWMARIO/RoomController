@@ -1,8 +1,8 @@
 import React from 'react'
 import QRCode from './qrcode.js'
-import displayControllerSettings from './displayControllerSettings.js'
-import displayControllerDetails from './displayControllerDetails.js'
-import DisplayControllerProperties from './DisplayControllerProperties.js'
+import displaySettings from './displaySettings.js'
+import displayDetails from './displayDetails.js'
+import DisplayProperties from './DisplayProperties.js'
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import SettingsIcon from '@material-ui/icons/Settings';
@@ -34,10 +34,7 @@ class ExpansionPanelContent extends React.Component {
   
   
   
-   render(){
-  
-   
-  
+   render(){ 
     return (
   
         
@@ -46,16 +43,13 @@ class ExpansionPanelContent extends React.Component {
                 <Button variant="contained" color="primary" onClick={this.handleClickDetailsOrSetting} startIcon={<SettingsIcon />}> {this.state.displayDetailsOrSetting===0?"Settings  &  QrCode":"Details & Properties"}</Button>
             </div>
                      
-            <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} >
-             
-                {this.state.displayDetailsOrSetting===1?displayControllerSettings(this.props.controller):displayControllerDetails(this.props.controller)} 
-             
+            <div  style={{ float: "left",paddingRight: "50px", minWidth:"400px"}} >             
+                {this.state.displayDetailsOrSetting===1?displaySettings(this.props.controller):displayDetails(this.props.controller)}              
             </div>
-            <div  style={{ float: "left",paddingRight: "50px",minWidth:"400px"}} >
-                {this.state.displayDetailsOrSetting===1?<QRCode controller={this.props.controller}/>:<DisplayControllerProperties item={this.props.controller}/>} 
-            </div>
-            
 
+            <div  style={{ float: "left"}} >
+                {this.state.displayDetailsOrSetting===1?<QRCode controller={this.props.controller}/>:<DisplayProperties item={this.props.controller}/>} 
+            </div>
         </Paper>     
             
             

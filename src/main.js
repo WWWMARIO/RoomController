@@ -1,5 +1,5 @@
 import React from 'react'
-import ControllerExpansionPanels from './ControllerExpansionPanels'
+import ExpansionPanels from './ExpansionPanels'
 
 
 class Main extends React.Component {
@@ -7,14 +7,13 @@ class Main extends React.Component {
         super(props);
         
         this.state = {
-
         };
     }     
 
     renderItem(item) {
         
         const itemRows = [			  
-                <ControllerExpansionPanels controller={item} expandedRow={this.props.expandedRow} 
+                <ExpansionPanels controller={item} expandedRow={this.props.expandedRow} 
                 handleRowClick={this.props.handleRowClick} handleClickDetailsOrSetting={this.handleClickDetailsOrSetting}/> 
         ];
         

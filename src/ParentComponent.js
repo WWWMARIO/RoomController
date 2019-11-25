@@ -9,9 +9,7 @@ class ParentComponent extends React.Component {
         this.state = { 
           expandedRow : "",        
                   
-          }      
-          
-    
+          } 
     }
 
     
