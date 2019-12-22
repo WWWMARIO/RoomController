@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from './Layout'
+import rooms_status from './rooms_status'
 
 class ParentComponent extends React.Component {
 
@@ -12,8 +13,38 @@ class ParentComponent extends React.Component {
           } 
     }
 
+
+
+
+    componentDidMount() {        
+        
+                     
+          this.setState({ rooms_status: rooms_status },()=>
+          {
+            {
+              if ((JSON.parse(localStorage.getItem("currentTemperatureLocal"))) ===null )
+                {
+                  
+                  let currentTempByRoomIdLocal={}
+              
+                  this.state.rooms_status.controllers.forEach(element => {
+                    let controllerId=element.id
+                    let controllerTemp=element.properties[7].Value
+                    currentTempByRoomIdLocal[controllerId]=controllerTemp
+              
+                  })
+              
+                  localStorage.setItem("currentTemperatureLocal", JSON.stringify(currentTempByRoomIdLocal));
+                  this.setState({localTempUpdated : true})
+                }  
+                  
+            }
+          })       
+              
+        }
+
     
-    componentDidMount() {
+    /*componentDidMount() {
         var roomStatusUrl="https://ae.hr/rooms_status.php"
         
        
@@ -45,7 +76,7 @@ class ParentComponent extends React.Component {
               
         })
         .catch(console.log)  
-      }         
+      }*/    
       
       
       handleRowClick=(rowId)=> {
